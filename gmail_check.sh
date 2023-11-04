@@ -61,26 +61,3 @@ fi
 
 exit 0
 
-~/.config/systemd/user/gmail.service
-------------------------------------
-[Unit]
-Description=Check for unread GMail
-After=network.target
-[Service]
-Type=oneshot
-ExecStart=/home/toz/.local/bin/gmail_check.sh
-[Install]
-WantedBy=default.target
-
-~/.config/systemd/user/gmail.timer
-----------------------------------
-[Unit]
-Description=Display unread GMail in bubble every 10 minutes
-[Timer]
-Unit=gmail.service
-OnBootSec=3min
-OnUnitActiveSec=10m
-[Install]
-WantedBy=timers.target
-
-#systemctl --user enable gmail.timer --now

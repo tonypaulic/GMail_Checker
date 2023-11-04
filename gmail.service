@@ -1,0 +1,10 @@
+[Unit]
+Description=Check for unread GMail
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/toz/Development/GMail_Checker/gmail_check.sh
+
+[Install]
+WantedBy=default.target

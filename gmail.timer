@@ -1,0 +1,10 @@
+[Unit]
+Description=Display unread GMail in bubble every 10 minutes
+
+[Timer]
+Unit=gmail.service
+OnBootSec=3min
+OnUnitActiveSec=10m
+
+[Install]
+WantedBy=timers.target

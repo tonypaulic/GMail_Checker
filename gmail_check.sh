@@ -6,8 +6,11 @@
 ##### CONFIGURABLE SETTINGS - ADJUST AS NEEDED
 #
 # authentication info (using app password - https://support.google.com/accounts/answer/185833?hl=en)
-U="YYYYYYYY@gmail.com"
-P="zzzz zzzz zzzz zzzz"
+#   put userid and password into $HOME/.gmail_app_account_info (chmod 0600)
+#   first line is email addres
+#   second line is app password
+U="$(cat $HOME/.gmail_info | head -1)"
+P="$(cat $HOME/.gmail_info | tail -1)"
 #######################################################################################################################
 
 # get new mail subjects and put into an array

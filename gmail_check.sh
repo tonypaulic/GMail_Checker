@@ -9,6 +9,7 @@
 #   put userid and password into $HOME/.gmail_app_account_info (chmod 0600)
 #   first line is email addres
 #   second line is app password
+#   OR just replace values below
 U="$(cat $HOME/.gmail_info | head -1)"
 P="$(cat $HOME/.gmail_info | tail -1)"
 #######################################################################################################################

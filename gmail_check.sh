@@ -12,6 +12,12 @@
 #   OR just replace values below
 U="$(cat $HOME/.gmail_info | head -1)"
 P="$(cat $HOME/.gmail_info | tail -1)"
+#
+# which icon to use in the notification bubble
+ICON=mail-unread
+#
+# subject title of notification bubble
+TITLE="You have unread Gmail"
 #######################################################################################################################
 
 # get new mail subjects and put into an array
@@ -23,8 +29,6 @@ COUNT=$(echo ${#new_mail[@]})
 # prepare notification and content
 NOTIF=$(cat /tmp/.gmail-notif)
 [[ -z $NOTIF ]] && NOTIF=1
-ICON=mail-unread
-TITLE="You have unread Gmail"
 
 if [ $COUNT -gt 0 ]; then
     # prepare the tooltip with subject lines

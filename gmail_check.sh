@@ -26,12 +26,12 @@ mapfile -t new_mail < <( curl -u "$U:$P" --silent "https://mail.google.com/mail/
 # determine number of new items
 COUNT=$(echo ${#new_mail[@]})
 
+# prepare notification and content
+NOTIF=$(cat /tmp/.gmail-notif)
+[[ -z $NOTIF ]] && NOTIF=1
+
 # if new emails exist, then prep and notify
 if [ $COUNT -gt 0 ]; then
-
-    # prepare notification and content
-    NOTIF=$(cat /tmp/.gmail-notif)
-    [[ -z $NOTIF ]] && NOTIF=1
 
     # prepare the tooltip with subject lines
     for (( x=0; x<$COUNT; x++ ))
